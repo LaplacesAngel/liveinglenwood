@@ -1,0 +1,30 @@
+[
+  {
+    "id": "3430-sharon-lane",
+    "title": "3430 Sharon Ln, Alton, IL 62002",
+    "price": "Contact for Pricing",
+    "status": "Available",
+    "description": "New 2026 Champion / Dutch Home now on the market! Get a brand-new energy efficient home at a fraction of the cost of a nearby residential home. Modern spacious kitchen with island, all stainless-steel new appliances. Wooded lot with spectacular views. Rapid Wall premium insulated skirting all along the bottom for energy efficiency and even lower utility bills. This is a high quality all drywall Dutch home on a beautiful, secluded lot. There are no property taxes for this home. Close to shopping district in a peaceful and beautiful country setting.",
+    "features": [
+      "3 Bedrooms",
+      "2 Bathrooms",
+      "Dimensions: 27' x 56'",
+      "1493 Sq Ft",
+      "Model: Warren",
+      "Manufacturer: Champion / Dutch Home",
+      "Rapid Wall Premium Insulated Skirting",
+      "All Drywall Interior",
+      "Stainless-Steel Appliances",
+      "Modern Kitchen with Island",
+      "Wooded lot with views"
+    ],
+    "photos": [
+      "assets/homes/sharon-main.jpg",
+      "assets/homes/sharon-ext.jpg",
+      "assets/homes/sharon-bath.png",
+      "assets/homes/sharon-kitchen.jpg",
+      "assets/homes/sharon-living.jpg",
+      "assets/homes/sharon-bed.jpg"
+    ]
+  }
+]

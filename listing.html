@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details | Glenwood</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-tag {
+            background: rgba(27, 77, 62, 0.1);
+            color: var(--color-primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-card"
+        style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; padding: 1rem 2rem; z-index: 1000; display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo"
+            style="font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; color: var(--color-primary);">
+            <a href="index.html" style="text-decoration: none; color: inherit;">GLENWOOD</a>
+        </div>
+        <div class="nav-links" style="display: flex; gap: 2rem;">
+            <a href="index.html" style="font-weight: 500;">Home</a>
+            <a href="index.html#featured" style="font-weight: 500;">Homes for Sale</a>
+            <a href="contact.html" style="font-weight: 500;">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Schedule
+            Tour</a>
+    </nav>
+
+    <!-- Content Container -->
+    <div class="container" style="margin-top: 150px; margin-bottom: 4rem;">
+        <a href="index.html#featured"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+            ← Back to Listings
+        </a>
+
+        <div id="listing-content">
+            <h1 style="text-align: center; color: var(--color-text-muted);">Loading listing...</h1>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--color-primary-dark); color: white; padding: 2rem 0; text-align: center;">
+        <div class="container">
+            &copy; 2026 Glenwood Mobile Home Park
+        </div>
+    </footer>
+
+    <script>
+        // Get ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const homeId = urlParams.get('id');
+
+        if (!homeId) {
+            document.getElementById('listing-content').innerHTML = '<p class="text-center">Property not found.</p>';
+        } else {
+            fetch('data/homes.json')
+                .then(res => res.json())
+                .then(homes => {
+                    const home = homes.find(h => h.id === homeId);
+
+                    if (home) {
+                        renderListing(home);
+                    } else {
+                        document.getElementById('listing-content').innerHTML = '<p class="text-center">Property not found.</p>';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('listing-content').innerHTML = '<p class="text-center">Error loading property details.</p>';
+                });
+        }
+
+        function renderListing(home) {
+            const container = document.getElementById('listing-content');
+
+            // Format features
+            const featuresHtml = home.features.map(f => `<span class="feature-tag">${f}</span>`).join('');
+
+            // Format gallery
+            const galleryHtml = home.photos.map(photo => `
+                <img src="${photo}" alt="${home.title}" class="gallery-img" onclick="window.open('${photo}', '_blank')">
+            `).join('');
+
+            container.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-md" style="align-items: start;">
+                    <!-- Main Image -->
+                    <div class="glass-card" style="padding: 0.5rem; overflow: hidden;">
+                        <img src="${home.photos[0]}" alt="${home.title}" style="width: 100%; height: auto; border-radius: var(--radius-sm);">
+                    </div>
+
+                    <!-- Details -->
+                    <div>
+                        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">${home.title}</h1>
+                        <p style="font-size: 2rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">${home.price}</p>
+                        
+                        <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 1rem;">Description</h3>
+                            <p style="color: var(--color-text-muted); white-space: pre-wrap;">${home.description}</p>
+                        </div>
+
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 1rem;">Features & Specs</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                ${featuresHtml}
+                            </div>
+                        </div>
+
+                        <a href="contact.html?interest=${home.id}" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 1.2rem;">Detailed Inquiry / Schedule Viewing</a>
+                    </div>
+                </div>
+
+                <!-- Gallery Section -->
+                <div style="margin-top: 4rem;">
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Photo Gallery</h2>
+                    <div class="gallery-grid">
+                        ${galleryHtml}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
