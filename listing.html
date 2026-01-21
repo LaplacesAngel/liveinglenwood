@@ -48,7 +48,7 @@
         </div>
         <div class="nav-links" style="display: flex; gap: 2rem;">
             <a href="index.html" style="font-weight: 500;">Home</a>
-            <a href="index.html#featured" style="font-weight: 500;">Homes for Sale</a>
+            <a href="properties.html" style="font-weight: 500;">Homes for Sale</a>
             <a href="contact.html" style="font-weight: 500;">Contact</a>
         </div>
         <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Schedule
@@ -74,80 +74,8 @@
         </div>
     </footer>
 
-    <script>
-        // Get ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const homeId = urlParams.get('id');
-
-        if (!homeId) {
-            document.getElementById('listing-content').innerHTML = '<p class="text-center">Property not found.</p>';
-        } else {
-            fetch('data/homes.json')
-                .then(res => res.json())
-                .then(homes => {
-                    const home = homes.find(h => h.id === homeId);
-
-                    if (home) {
-                        renderListing(home);
-                    } else {
-                        document.getElementById('listing-content').innerHTML = '<p class="text-center">Property not found.</p>';
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    document.getElementById('listing-content').innerHTML = '<p class="text-center">Error loading property details.</p>';
-                });
-        }
-
-        function renderListing(home) {
-            const container = document.getElementById('listing-content');
-
-            // Format features
-            const featuresHtml = home.features.map(f => `<span class="feature-tag">${f}</span>`).join('');
-
-            // Format gallery
-            const galleryHtml = home.photos.map(photo => `
-                <img src="${photo}" alt="${home.title}" class="gallery-img" onclick="window.open('${photo}', '_blank')">
-            `).join('');
-
-            container.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-md" style="align-items: start;">
-                    <!-- Main Image -->
-                    <div class="glass-card" style="padding: 0.5rem; overflow: hidden;">
-                        <img src="${home.photos[0]}" alt="${home.title}" style="width: 100%; height: auto; border-radius: var(--radius-sm);">
-                    </div>
-
-                    <!-- Details -->
-                    <div>
-                        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">${home.title}</h1>
-                        <p style="font-size: 2rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">${home.price}</p>
-                        
-                        <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem;">
-                            <h3 style="margin-bottom: 1rem;">Description</h3>
-                            <p style="color: var(--color-text-muted); white-space: pre-wrap;">${home.description}</p>
-                        </div>
-
-                        <div style="margin-bottom: 2rem;">
-                            <h3 style="margin-bottom: 1rem;">Features & Specs</h3>
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                                ${featuresHtml}
-                            </div>
-                        </div>
-
-                        <a href="contact.html?interest=${home.id}" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 1.2rem;">Detailed Inquiry / Schedule Viewing</a>
-                    </div>
-                </div>
-
-                <!-- Gallery Section -->
-                <div style="margin-top: 4rem;">
-                    <h2 style="font-size: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Photo Gallery</h2>
-                    <div class="gallery-grid">
-                        ${galleryHtml}
-                    </div>
-                </div>
-            `;
-        }
-    </script>
+    <script src="js/app.js"></script>
+    <script src="js/homes.js"></script>
 </body>
 
 </html>
