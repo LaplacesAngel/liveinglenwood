@@ -51,12 +51,12 @@ function renderHomes(homes) {
         ).join('');
 
         card.innerHTML = `
-            <div style="position: relative; height: 250px; overflow: hidden;">
+            <a href="listing.html?id=${home.id}" style="display: block; position: relative; height: 250px; overflow: hidden;">
                 <img src="${mainImage}" alt="${home.title}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
                 <div style="position: absolute; top: 1rem; right: 1rem; background: var(--color-accent); color: var(--color-primary-dark); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">
                     ${home.status}
                 </div>
-            </div>
+            </a>
             <div style="padding: 1.5rem;">
                 <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">${home.title}</h3>
                 <p style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem;">${home.price}</p>

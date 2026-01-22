@@ -28,6 +28,7 @@
         <div class="nav-links" style="display: flex; gap: 2rem;">
             <a href="index.html" style="font-weight: 500;">Home</a>
             <a href="properties.html" style="font-weight: 500;">Homes for Sale</a>
+            <a href="photos.html" style="font-weight: 500;">Photos</a>
             <a href="faq.html" style="font-weight: 500;">FAQ</a>
             <a href="contact.html" style="font-weight: 500; color: var(--color-primary);">Contact</a>
         </div>
@@ -39,6 +40,7 @@
     <div class="mobile-nav-overlay">
         <a href="index.html">Home</a>
         <a href="properties.html">Homes for Sale</a>
+        <a href="photos.html">Photos</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html" class="btn btn-primary">Schedule Tour</a>
@@ -49,7 +51,7 @@
         <div class="container">
             <h1 style="font-size: 3rem; margin-bottom: 1rem;">Get in Touch</h1>
             <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">
-                Have questions about our improved community or available homes?
+                Have questions about our community or available homes?
                 We'd love to hear from you.
             </p>
         </div>
@@ -116,10 +118,39 @@
                                 style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: var(--radius-sm); font-family: inherit;"></textarea>
                         </div>
 
+                        <!-- Security Fields -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <!-- Honeypot Field (Hidden) -->
+                            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1"
+                                autocomplete="off">
+
+                            <!-- Human Verification -->
+                            <div class="human-verify">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" required>
+                                    <span class="checkmark"></span>
+                                    <span style="font-weight: 500; font-size: 0.95rem;">Verify I'm a human</span>
+                                </label>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     </form>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Visit Us In Person</h2>
+            <div class="glass-card" style="overflow: hidden; height: 450px; padding: 0;">
+                <iframe
+                    src="https://maps.google.com/maps?q=3431+Seminary+St,+Alton,+IL+62002+(Glenwood+Homes)&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>

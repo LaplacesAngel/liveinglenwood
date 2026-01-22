@@ -604,3 +604,78 @@ header .container {
         margin: 0 auto;
     }
 }
+
+/* FAQ Linked Answer Styles */
+.faq-content a {
+    color: #0066cc;
+    /* Standard web blue for obvious links */
+    text-decoration: underline;
+    font-weight: 600;
+    text-underline-offset: 2px;
+}
+
+.faq-content a:hover {
+    color: #004499;
+    /* Darker blue on hover */
+    text-decoration-thickness: 2px;
+}
+
+/* Custom Checkbox Styles */
+.human-verify {
+    padding: 0.5rem 0;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    background-color: #eee;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    border: 1px solid #ccc;
+}
+
+.checkbox-container:hover input~.checkmark {
+    background-color: #ddd;
+}
+
+.checkbox-container input:checked~.checkmark {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
