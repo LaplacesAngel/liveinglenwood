@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glenwood Mobile Home Park | Affordable Luxury Living</title>
+    <title>Glenwood</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -15,26 +15,53 @@
         style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; padding: 1rem 2rem; z-index: 1000; display: flex; justify-content: space-between; align-items: center;">
         <div class="logo"
             style="font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; color: var(--color-primary);">
-            GLENWOOD
+            <a href="index.html" style="text-decoration: none; color: inherit;">GLENWOOD</a>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <div class="nav-links" style="display: flex; gap: 2rem;">
-            <a href="#" style="font-weight: 500;">Home</a>
+            <a href="index.html" style="font-weight: 500;">Home</a>
             <a href="properties.html" style="font-weight: 500;">Homes for Sale</a>
+            <a href="photos.html" style="font-weight: 500;">Photos</a>
+            <a href="faq.html" style="font-weight: 500;">FAQ</a>
             <a href="contact.html" style="font-weight: 500;">Contact</a>
         </div>
         <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Schedule
             Tour</a>
     </nav>
 
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <a href="index.html">Home</a>
+        <a href="properties.html">Homes for Sale</a>
+        <a href="photos.html">Photos</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-primary">Schedule Tour</a>
+    </div>
+
     <!-- Hero Section -->
     <header
-        style="height: 80vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/bg-main.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding-top: 6rem;">
+        style="height: 80vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding-top: 6rem;">
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('assets/bg-main.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/hero/hero-1.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/hero/hero-2.jpg');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+
         <div class="container">
             <h1 style="font-size: 4rem; margin-bottom: 1rem; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">
                 Find Your Perfect <br> <span style="color: var(--color-accent);">Home</span>
             </h1>
             <p
-                style="font-size: 1.25rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9;">
+                style="font-size: 1.35rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; text-shadow: 0 2px 10px rgba(0,0,0,0.8); font-weight: 500; line-height: 1.6;">
                 Spacious retirement living in a peaceful, wooded country setting.
                 Affordable luxury with no property taxes.
             </p>
@@ -96,6 +123,129 @@
         </div>
     </section>
 
+    <!-- Photos CTA Section -->
+    <section class="section" style="background-color: var(--color-primary); color: white;">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md items-center">
+                <!-- Image Side (Left) -->
+                <div class="glass-card rotate-card" style="padding: 1rem; background: rgba(255,255,255,0.1);">
+                    <img src="assets/hero/hero-2.jpg" alt="Beautiful Glenwood Homes"
+                        style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-sm);">
+                </div>
+
+                <!-- Text Side (Right) -->
+                <div style="text-align: left;">
+                    <h2 style="color: white; margin-bottom: 1rem; font-size: 2.5rem;">See More Pictures of Glenwood</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.9; font-size: 1.2rem;">
+                        Browse our community photo gallery to see the beautiful homes and spacious surroundings.
+                        Experience the charm of country living.
+                    </p>
+                    <a href="photos.html" class="btn btn-primary"
+                        style="background-color: white; color: var(--color-primary); padding: 1rem 3rem;">View
+                        Photos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ CTA Section -->
+    <section class="section" style="background-color: var(--color-bg-body);">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md items-center">
+                <!-- Text Side (Left) -->
+                <div>
+                    <h2 style="margin-bottom: 1rem; font-size: 2.5rem; color: var(--color-primary-dark);">Got Questions?
+                    </h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.8; font-size: 1.2rem; color: var(--color-text-muted);">
+                        We have answers. Check out our detailed Frequently Asked Questions page to learn more about
+                        financing, lot rent, and community guidelines.
+                    </p>
+                    <a href="faq.html" class="btn btn-outline" style="padding: 1rem 3rem;">Visit FAQ Page</a>
+                </div>
+
+                <!-- Visual Side (Right) -->
+                <a href="faq.html" style="text-decoration: none; display: block; height: 100%;">
+                    <div class="glass-card hover-animate"
+                        style="padding: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px;">
+                        <div style="font-size: 5rem; color: var(--color-accent); margin-bottom: 1rem; line-height: 1;">?
+                        </div>
+                        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">Help Center</h3>
+                        <p style="color: var(--color-text-muted);">Find all the info you need</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- About Section -->
+    <section class="section" style="background-color: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: var(--color-primary-dark);">
+                About Us</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md items-center">
+                <!-- History Image -->
+                <div class="glass-card rotate-card" style="padding: 1rem;">
+                    <img src="assets/about/briny.jpg" alt="Grandpa and Grandma at Briny Breezes"
+                        style="width: 100%; border-radius: var(--radius-sm);">
+                </div>
+
+                <!-- History Text -->
+                <div class="about-text">
+                    <h3 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">It All Started With Large
+                        Lots</h3>
+                    <p>The Inspiration: When Grandpa started Glenwood in 1970, he wasn’t thinking of your typical
+                        trailer park. He was thinking of his trips to Florida each year when he and Grandma would load
+                        up their little trailer and take 2 weeks to drive to Briny Breezes mobile home community, where
+                        they would winter.</p>
+                    <p>He owned 120 acres of beautiful land in a country setting. Using his civil engineer background,
+                        he drew up plans for a new kind of community. He didn’t want homes jammed next to each other; he
+                        figured people want elbow room and maybe a garden.</p>
+                    <p>He built quarter-acre lots, larger than nearby neighborhoods, with underground utilities and
+                        green space. He built slowly, ensuring quality and proper drainage. The result was an immediate
+                        waiting list.</p>
+                    <p>Today, the legacy continues with his grandchildren adding new lots and maintaining the high
+                        standards that make Glenwood unique in the St. Louis metro area.</p>
+                </div>
+            </div>
+
+            <!-- Additional Community Images -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md" style="margin-top: 4rem;">
+                <a href="blog.html" style="text-decoration: none; display: block;">
+                    <div class="glass-card hover-animate" style="padding: 0.5rem; transition: transform 0.3s ease;">
+                        <img src="assets/about/development.jpg" alt="A New Generation"
+                            style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-sm);">
+                        <p style="text-align: center; padding: 1rem; font-weight: 500; color: var(--color-primary);">A
+                            New Generation</p>
+                    </div>
+                </a>
+                <a href="social.html" style="text-decoration: none; display: block;">
+                    <div class="glass-card hover-animate" style="padding: 0.5rem; transition: transform 0.3s ease;">
+                        <img src="assets/about/social.jpg" alt="Glenwood Social"
+                            style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-sm);">
+                        <p style="text-align: center; padding: 1rem; font-weight: 500; color: var(--color-primary);">
+                            Glenwood Social</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Additional Contact CTA -->
+    <section class="section" style="background-color: var(--color-bg-body); text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Get in Touch</h2>
+            <p
+                style="margin-bottom: 2rem; opacity: 0.8; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Have more questions or want to schedule a visit?</p>
+            <a href="contact.html" class="btn btn-outline" style="padding: 1rem 3rem;">Contact Us</a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer style="background-color: var(--color-primary-dark); color: white; padding: 4rem 0;">
         <div class="container">
@@ -103,6 +253,9 @@
                 <div>
                     <h3 style="color: white; margin-bottom: 1rem;">GLENWOOD</h3>
                     <p style="opacity: 0.7;">Spacious Retirement Living</p>
+                    <a href="https://www.facebook.com/people/Glenwood/100064058650444/" target="_blank"
+                        style="color: white; opacity: 0.7; text-decoration: none; display: block; margin-top: 0.5rem;">Follow
+                        us on Facebook 📘</a>
                 </div>
                 <div>
                     <h4 style="color: var(--color-accent); font-size: 1.2rem; margin-bottom: 1rem;">Contact</h4>
@@ -114,19 +267,20 @@
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                         <a href="index.html" style="opacity: 0.7; text-decoration: none;">Home</a>
                         <a href="properties.html" style="opacity: 0.7; text-decoration: none;">Listings</a>
+                        <a href="faq.html" style="opacity: 0.7; text-decoration: none;">FAQ</a>
                         <a href="contact.html" style="opacity: 0.7; text-decoration: none;">Contact</a>
                     </div>
                 </div>
             </div>
             <div
-                style="margin-top: 3rem; pt: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.9rem;">
+                style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.9rem;">
                 &copy; 2026 Glenwood Homes. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
-    <script src="js/homes.js"></script>
+    <script src="js/app.js?v=1"></script>
+    <script src="js/homes.js?v=1"></script>
 </body>
 
 </html>

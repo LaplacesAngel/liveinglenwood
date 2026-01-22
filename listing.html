@@ -46,14 +46,34 @@
             style="font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; color: var(--color-primary);">
             <a href="index.html" style="text-decoration: none; color: inherit;">GLENWOOD</a>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <div class="nav-links" style="display: flex; gap: 2rem;">
             <a href="index.html" style="font-weight: 500;">Home</a>
             <a href="properties.html" style="font-weight: 500;">Homes for Sale</a>
+            <a href="photos.html" style="font-weight: 500;">Photos</a>
+            <a href="faq.html" style="font-weight: 500;">FAQ</a>
             <a href="contact.html" style="font-weight: 500;">Contact</a>
         </div>
         <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Schedule
             Tour</a>
     </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <a href="index.html">Home</a>
+        <a href="properties.html">Homes for Sale</a>
+        <a href="photos.html">Photos</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-primary">Schedule Tour</a>
+    </div>
 
     <!-- Content Container -->
     <div class="container" style="margin-top: 150px; margin-bottom: 4rem;">
@@ -68,9 +88,35 @@
     </div>
 
     <!-- Footer -->
-    <footer style="background-color: var(--color-primary-dark); color: white; padding: 2rem 0; text-align: center;">
+    <footer style="background-color: var(--color-primary-dark); color: white; padding: 4rem 0; margin-top: auto;">
         <div class="container">
-            &copy; 2026 Glenwood Mobile Home Park
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                <div>
+                    <h3 style="color: white; margin-bottom: 1rem;">GLENWOOD</h3>
+                    <p style="opacity: 0.7;">Premium Mobile Home Living</p>
+                    <a href="https://www.facebook.com/people/Glenwood/100064058650444/" target="_blank"
+                        style="color: white; opacity: 0.7; text-decoration: none; display: block; margin-top: 0.5rem;">Follow
+                        us on Facebook 📘</a>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-accent); font-size: 1.2rem; margin-bottom: 1rem;">Contact</h4>
+                    <p style="opacity: 0.7;">3431 Seminary Road<br>Alton, IL 62002</p>
+                    <p style="opacity: 0.7; margin-top: 0.5rem;">(618) 401-2209</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-accent); font-size: 1.2rem; margin-bottom: 1rem;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="index.html" style="opacity: 0.7; text-decoration: none;">Home</a>
+                        <a href="properties.html" style="opacity: 0.7; text-decoration: none;">Listings</a>
+                        <a href="faq.html" style="opacity: 0.7; text-decoration: none;">FAQ</a>
+                        <a href="contact.html" style="opacity: 0.7; text-decoration: none;">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.9rem;">
+                &copy; 2026 Glenwood Homes. All rights reserved.
+            </div>
         </div>
     </footer>
 
