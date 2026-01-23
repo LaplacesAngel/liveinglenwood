@@ -21,6 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Close menu when clicking the overlay background
+        mobileNav.addEventListener('click', (e) => {
+            if (e.target === mobileNav) {
+                mobileBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+
         // Close menu when clicking a link
         const navLinks = mobileNav.querySelectorAll('a');
         navLinks.forEach(link => {
