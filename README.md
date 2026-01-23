@@ -6,3 +6,7 @@ to not have the wordpress site
 the site being replaced is here:
 
 https://www.liveinglenwood.com/
+
+currently deployed from githubpages at:
+
+https://laplacesangel.github.io/liveinglenwood/
