@@ -156,7 +156,7 @@ function renderListingDetails(home) {
 
             <!-- Right Column: Details -->
             <div>
-                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">${home.title}</h1>
+                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">${home.title.split(',')[0]}</h1>
                 <p style="font-size: 2rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">${home.price}</p>
                 
                 <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem;">
