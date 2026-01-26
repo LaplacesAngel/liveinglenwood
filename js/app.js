@@ -65,17 +65,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // FAQ Logic
-    const expandBtn = document.getElementById('expand-all-btn');
-    const collapseBtn = document.getElementById('collapse-all-btn');
+    const toggleBtn = document.getElementById('faq-toggle-btn');
     const faqDetails = document.querySelectorAll('.faq-item');
 
-    if (expandBtn && collapseBtn && faqDetails) {
-        expandBtn.addEventListener('click', () => {
-            faqDetails.forEach(detail => detail.setAttribute('open', 'true'));
-        });
+    if (toggleBtn && faqDetails) {
+        toggleBtn.addEventListener('click', () => {
+            const isExpand = toggleBtn.textContent.includes('Expand');
 
-        collapseBtn.addEventListener('click', () => {
-            faqDetails.forEach(detail => detail.removeAttribute('open'));
+            if (isExpand) {
+                // Expand All
+                faqDetails.forEach(detail => detail.setAttribute('open', 'true'));
+                toggleBtn.textContent = 'Collapse All';
+                toggleBtn.classList.replace('btn-primary', 'btn-outline'); // optional visual toggle
+            } else {
+                // Collapse All
+                faqDetails.forEach(detail => detail.removeAttribute('open'));
+                toggleBtn.textContent = 'Expand All';
+                toggleBtn.classList.replace('btn-outline', 'btn-primary'); // optional visual toggle
+            }
         });
     }
 
