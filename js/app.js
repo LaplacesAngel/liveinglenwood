@@ -64,4 +64,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // FAQ Logic
+    const toggleBtn = document.getElementById('faq-toggle-btn');
+    const faqDetails = document.querySelectorAll('.faq-item');
+
+    if (toggleBtn && faqDetails) {
+        toggleBtn.addEventListener('click', () => {
+            const isExpand = toggleBtn.textContent.includes('Expand');
+
+            if (isExpand) {
+                // Expand All
+                faqDetails.forEach(detail => detail.setAttribute('open', 'true'));
+                toggleBtn.textContent = 'Collapse All';
+                toggleBtn.classList.replace('btn-primary', 'btn-outline'); // optional visual toggle
+            } else {
+                // Collapse All
+                faqDetails.forEach(detail => detail.removeAttribute('open'));
+                toggleBtn.textContent = 'Expand All';
+                toggleBtn.classList.replace('btn-outline', 'btn-primary'); // optional visual toggle
+            }
+        });
+    }
+
 });
