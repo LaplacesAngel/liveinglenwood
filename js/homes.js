@@ -61,7 +61,7 @@ function renderHomes(homes) {
                 </div>
             </a>
             <div style="padding: 1.5rem;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">${home.title}</h3>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">${home.title.split(',')[0]}</h3>
                 <p style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem;">${home.price}</p>
                 
                 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
