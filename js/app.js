@@ -64,4 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // FAQ Logic
+    const expandBtn = document.getElementById('expand-all-btn');
+    const collapseBtn = document.getElementById('collapse-all-btn');
+    const faqDetails = document.querySelectorAll('.faq-item');
+
+    if (expandBtn && collapseBtn && faqDetails) {
+        expandBtn.addEventListener('click', () => {
+            faqDetails.forEach(detail => detail.setAttribute('open', 'true'));
+        });
+
+        collapseBtn.addEventListener('click', () => {
+            faqDetails.forEach(detail => detail.removeAttribute('open'));
+        });
+    }
+
 });
