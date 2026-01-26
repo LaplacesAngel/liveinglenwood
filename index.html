@@ -218,79 +218,21 @@
                 </a>
 
                 <!-- Grandpa's Trailer Interactive Element -->
-                <div id="grandpa-story-container">
-
-                    <!-- Trigger View -->
-                    <div id="grandpa-trigger" style="cursor: pointer; text-align: center;"
-                        onclick="toggleGrandpaStory()">
-                        <div class="glass-card hover-animate"
-                            style="padding: 1rem; display: inline-block; width: 100%;">
-                            <img src="assets/about/briny.jpg" alt="Grandpa and Grandma at Briny Breezes"
-                                style="width: 100%; height: auto; border-radius: var(--radius-sm); margin-bottom: 1rem;">
-                            <h3 style="font-size: 1.5rem; color: var(--color-primary); margin: 0;">It all started with
-                                large lots</h3>
-                            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">(Click to
-                                read story)</p>
-                        </div>
+                <a href="history.html" style="text-decoration: none; color: inherit;">
+                    <div class="glass-card hover-animate" style="padding: 0.5rem; transition: transform 0.3s ease;">
+                        <img src="assets/about/briny.jpg" alt="Grandpa and Grandma at Briny Breezes"
+                            style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-sm);">
+                        <p style="text-align: center; padding: 1rem; font-weight: 500; color: var(--color-primary);">It
+                            all started with large lots</p>
                     </div>
-
-                    <!-- Full Story View (Hidden by default) -->
-                    <div id="grandpa-content" style="display: none; text-align: left;" class="fade-in">
-                        <h3 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">It All Started With
-                            Large Lots</h3>
-                        <p style="margin-bottom: 1rem;">When Grandpa started Glenwood in 1970, he wasn’t thinking of
-                            your typical trailer park. He was thinking of his trips to Florida each year when he and
-                            Grandma would load up their little trailer and take 2 weeks to drive to Briny Breezes mobile
-                            home community, where they would winter. If they were lucky, they would make 100 miles in
-                            one day. Grandpa wasn’t in a hurry.</p>
-                        <p style="margin-bottom: 1rem;">In Briny, they would relax with their friends in a beautiful 55
-                            and above mobile home community right on the beach. They loved being in a friendly
-                            neighborhood with people their age. So Grandpa thought, why not do this in my home town? He
-                            didn’t have a beach, but he did own 120 acres of beautiful land in a country setting. Being
-                            a civil engineer, he began drawing up plans for a new kind of mobile home community.</p>
-                        <p style="margin-bottom: 1rem;">He didn’t want mobile homes jammed up next to each other. He
-                            figured people want a little elbow room, maybe a garden. So he built quarter acre lots. Or
-                            about. Bigger than any nearby residential neighborhoods. Underground utilities for a cleaner
-                            look. Big areas of green space, lots of trees.</p>
-                        <p style="margin-bottom: 1rem;">He took his time. He built 4 lots a year, max. He carefully
-                            supervised the landscaping of each lot to make sure water flowed away from each home. No
-                            sewer or water line was backfilled until he carefully checked it out. He loved building
-                            something beautiful, working outside.</p>
-                        <p style="margin-bottom: 1rem;">People lined up to get in. They paid rent, but not property
-                            taxes. They got a home at half the price of one in neighboring subdivisions, with rent that
-                            was lower than their neighbor’s residential property tax.</p>
-                        <p style="margin-bottom: 1rem;">But after 43 lots, age began to catch up with Grandpa.
-                            Amazingly, he had begun Glenwood when he was 74. He and Grandma passed away and left it to
-                            my sister and me. We wanted to continue the great model he had begun. So in 1995 I began
-                            building 20 more lots. To improve the quality of homes in Glenwood, we began setting up our
-                            own new homes and selling them. I love working with my chain saw, so tree trimming and
-                            planting accelerated. Each year the community kept improving. I think Grandpa would be
-                            pleased.</p>
-
-                        <button class="btn btn-outline" onclick="toggleGrandpaStory()" style="margin-top: 1rem;">Close
-                            Story</button>
-                    </div>
-                </div>
+                </a>
 
             </div>
 
         </div>
     </section>
 
-    <script>
-        function toggleGrandpaStory() {
-            const trigger = document.getElementById('grandpa-trigger');
-            const content = document.getElementById('grandpa-content');
 
-            if (content.style.display === 'none') {
-                content.style.display = 'block';
-                trigger.style.display = 'none';
-            } else {
-                content.style.display = 'none';
-                trigger.style.display = 'block';
-            }
-        }
-    </script>
 
     <!-- Additional Contact CTA -->
     <section class="section" style="background-color: var(--color-bg-body); text-align: center;">
