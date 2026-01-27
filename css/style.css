@@ -361,6 +361,33 @@ img {
     z-index: 1;
 }
 
+/* Responsive Background Images */
+.hero-bg-1 {
+    background-image: url('../assets/bg-main.jpg');
+}
+
+.hero-bg-2 {
+    background-image: url('../assets/hero/hero-1.jpg');
+}
+
+.hero-bg-3 {
+    background-image: url('../assets/hero/hero-2.jpg');
+}
+
+@media (max-width: 768px) {
+    .hero-bg-1 {
+        background-image: url('../assets/bg-main-small.jpg');
+    }
+    
+    .hero-bg-2 {
+        background-image: url('../assets/hero/hero-1-small.jpg');
+    }
+    
+    .hero-bg-3 {
+        background-image: url('../assets/hero/hero-2-small.jpg');
+    }
+}
+
 /* Ensure container sits above slideshow */
 header .container {
     position: relative;
