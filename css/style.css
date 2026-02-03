@@ -276,6 +276,15 @@ img {
     gap: 1rem;
 }
 
+.faq-container.compact {
+    gap: 0.5rem;
+}
+
+.faq-container.compact .faq-item summary {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+}
+
 .faq-item {
     padding: 0;
     overflow: hidden;
@@ -436,12 +445,7 @@ header .container {
     box-shadow: var(--shadow-sm);
 }
 
-/* FAQ Accordion Styles */
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+
 
 .faq-item {
     padding: 0;
