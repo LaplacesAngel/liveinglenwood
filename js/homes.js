@@ -5,7 +5,7 @@ const FALLBACK_HOMES = [
         "title": "3430 Sharon Ln",
         "price": "Contact for Pricing",
         "status": "Available",
-        "description": "New 2026 Champion / Dutch Home now on the market!\nGet a brand-new energy efficient home at a fraction of the cost of a nearby residential home.\nModern spacious kitchen with island, all stainless-steel new appliances.\nWooded lot with spectacular views.\nRapid Wall premium insulated skirting all along the bottom for energy efficiency and even lower utility bills.\nThis is a high quality all drywall Dutch home on a beautiful, secluded lot.\nThere are no property taxes for this home.\nClose to shopping district in a peaceful and beautiful country setting.",
+        "description": "Brand New 2026 Champion / Dutch Home now on the market! \n\nGet a brand-new energy efficient home at a fraction of the cost of a nearby residential home.\nModern spacious kitchen with island, all stainless-steel new appliances.\nWooded lot with spectacular views.\nRapid Wall premium insulated skirting all along the bottom for energy efficiency and even lower utility bills.\nThis is a high quality all drywall Dutch home on a beautiful, secluded lot.\nThere are no property taxes for this home.\nClose to shopping district in a peaceful and beautiful country setting.",
         "features": [
             "3 Bedrooms",
             "2 Bathrooms",
