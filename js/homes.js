@@ -20,15 +20,15 @@ const FALLBACK_HOMES = [
             "Wooded lot with views"
         ],
         "photos": [
-            "assets/homes/sharon-main.jpg",
-            "assets/homes/sharon-ext.jpg",
-            "assets/homes/sharon-bath.png",
-            "assets/homes/sharon-kitchen.jpg",
-            "assets/homes/sharon-living.jpg",
-            "assets/homes/sharon-bed.jpg",
-            "assets/homes/sharon-interior-1.jpg",
-            "assets/homes/sharon-interior-2.jpg",
-            "assets/homes/sharon-interior-3.jpg"
+            "assets/homes/sharon-main.webp",
+            "assets/homes/sharon-ext.webp",
+            "assets/homes/sharon-bath.webp",
+            "assets/homes/sharon-kitchen.webp",
+            "assets/homes/sharon-living.webp",
+            "assets/homes/sharon-bed.webp",
+            "assets/homes/sharon-interior-1.webp",
+            "assets/homes/sharon-interior-2.webp",
+            "assets/homes/sharon-interior-3.webp"
         ]
     }
 ];
@@ -46,7 +46,7 @@ function renderHomes(homes) {
         card.style.transition = 'transform 0.3s ease';
 
         // Main image (first one)
-        const mainImage = home.photos[0] || 'assets/placeholder.jpg';
+        const mainImage = home.photos[0] || 'assets/placeholder.webp';
 
         // Top features (first 3)
         const topFeatures = home.features.slice(0, 3).map(f =>

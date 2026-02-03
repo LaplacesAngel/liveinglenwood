@@ -363,28 +363,28 @@ img {
 
 /* Responsive Background Images */
 .hero-bg-1 {
-    background-image: url('../assets/bg-main.jpg');
+    background-image: url('../assets/bg-main.webp');
 }
 
 .hero-bg-2 {
-    background-image: url('../assets/hero/hero-1.jpg');
+    background-image: url('../assets/hero/hero-1.webp');
 }
 
 .hero-bg-3 {
-    background-image: url('../assets/hero/hero-2.jpg');
+    background-image: url('../assets/hero/hero-2.webp');
 }
 
 @media (max-width: 768px) {
     .hero-bg-1 {
-        background-image: url('../assets/bg-main-small.jpg');
+        background-image: url('../assets/bg-main-small.webp');
     }
 
     .hero-bg-2 {
-        background-image: url('../assets/hero/hero-1-small.jpg');
+        background-image: url('../assets/hero/hero-1-small.webp');
     }
 
     .hero-bg-3 {
-        background-image: url('../assets/hero/hero-2-small.jpg');
+        background-image: url('../assets/hero/hero-2-small.webp');
     }
 }
 
