@@ -273,7 +273,7 @@ img {
 .faq-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .faq-item {
@@ -283,7 +283,7 @@ img {
 }
 
 .faq-item summary {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     cursor: pointer;
     font-weight: 600;
     font-size: 1.1rem;
@@ -314,7 +314,7 @@ img {
 }
 
 .faq-content {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     background-color: rgba(255, 255, 255, 0.8);
     color: var(--color-text-muted);
     line-height: 1.8;
@@ -378,11 +378,11 @@ img {
     .hero-bg-1 {
         background-image: url('../assets/bg-main-small.jpg');
     }
-    
+
     .hero-bg-2 {
         background-image: url('../assets/hero/hero-1-small.jpg');
     }
-    
+
     .hero-bg-3 {
         background-image: url('../assets/hero/hero-2-small.jpg');
     }
@@ -440,7 +440,7 @@ header .container {
 .faq-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .faq-item {
@@ -450,7 +450,7 @@ header .container {
 }
 
 .faq-item summary {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     cursor: pointer;
     font-weight: 600;
     font-size: 1.1rem;
@@ -481,7 +481,7 @@ header .container {
 }
 
 .faq-content {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     background-color: rgba(255, 255, 255, 0.8);
     color: var(--color-text-muted);
     line-height: 1.8;
@@ -629,6 +629,14 @@ header .container {
     .grid.md\:grid-cols-3 a {
         display: block;
         margin: 0 auto;
+    }
+
+    /* Hero Buttons Mobile */
+    header .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        width: auto;
+        min-width: 140px;
     }
 }
 
