@@ -86,4 +86,101 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Modal Logic
+
+    // Modal Logic
+    const modal = document.getElementById('notify-modal');
+    const notifyBtn = document.getElementById('notify-btn');
+    const closeBtn = document.querySelector('.modal-close');
+    const notifyForm = document.getElementById('notify-form');
+    const notifyStatus = document.getElementById('notify-status');
+
+    if (modal && notifyBtn && closeBtn) {
+        // Open Modal
+        notifyBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        // Close Modal
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Form Submission Logic
+    if (notifyForm) {
+        notifyForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = notifyForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            notifyStatus.style.display = 'none';
+
+            try {
+                const formData = new FormData(notifyForm);
+                const response = await fetch(notifyForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success
+                    notifyStatus.textContent = "Success! You are on the list.";
+                    notifyStatus.style.color = "green";
+                    notifyStatus.style.display = 'block';
+                    notifyForm.reset();
+                    submitBtn.textContent = "Sent!";
+
+                    // Close modal after 2 seconds
+                    setTimeout(() => {
+                        const closeModal = () => {
+                            if (modal) modal.classList.remove('active');
+                            document.body.style.overflow = '';
+                        };
+                        closeModal();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        notifyStatus.style.display = 'none';
+                    }, 2000);
+
+                } else {
+                    // Error
+                    const data = await response.json();
+                    if (Object.hasOwn(data, 'errors')) {
+                        notifyStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        notifyStatus.textContent = "Oops! There was a problem submitting your form";
+                    }
+                    notifyStatus.style.color = "red";
+                    notifyStatus.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            } catch (error) {
+                notifyStatus.textContent = "Oops! There was a problem submitting your form";
+                notifyStatus.style.color = "red";
+                notifyStatus.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    }
+
 });
