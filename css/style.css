@@ -557,6 +557,7 @@ header .container {
     margin-top: 1rem;
     width: 80%;
     text-align: center;
+    color: #f0f0f0 !important;
 }
 
 /* Close Icon State */
