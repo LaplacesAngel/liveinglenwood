@@ -84,6 +84,36 @@ function renderHomes(homes) {
 
         homesGrid.appendChild(card);
     });
+
+    // Inject Notify Card
+    const notifyCard = document.createElement('div');
+    notifyCard.className = 'glass-card hover-animate'; // Reusing glass-card and adding hover effect
+    notifyCard.style.display = 'flex';
+    notifyCard.style.flexDirection = 'column';
+    notifyCard.style.alignItems = 'center';
+    notifyCard.style.justifyContent = 'center';
+    notifyCard.style.textAlign = 'center';
+    notifyCard.style.cursor = 'pointer';
+    notifyCard.style.height = '250px'; // Match image height of home cards
+    notifyCard.style.padding = '1.5rem';
+    notifyCard.style.border = '2px solid var(--color-primary-light)'; // Solid border, distinct but cohesive
+
+    notifyCard.innerHTML = `
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--color-primary);">🔔</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--color-primary-dark);">Stay Updated</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem;">Get notified when a new home goes on the market!</p>
+    `;
+
+    // Add click listener to open modal
+    notifyCard.addEventListener('click', () => {
+        const modal = document.getElementById('notify-modal');
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    homesGrid.appendChild(notifyCard);
 }
 
 // Function to get query param

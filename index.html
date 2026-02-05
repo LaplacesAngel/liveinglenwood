@@ -82,7 +82,9 @@
         <div class="container">
             <div class="text-center" style="margin-bottom: 3rem;">
                 <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Featured Homes</h2>
-                <p style="color: var(--color-text-muted);">Explore our latest available properties</p>
+                <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Explore our latest available
+                    properties</p>
+
             </div>
 
             <div id="homes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
@@ -324,6 +326,48 @@
             </div>
         </div>
     </footer>
+
+    <!-- Notify Me Modal -->
+    <div id="notify-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <button class="modal-close">&times;</button>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--color-primary);">Stay Updated</h3>
+                <p style="color: var(--color-text-muted);">Enter your email to get notified when we add new featured
+                    homes.</p>
+            </div>
+
+            <form id="notify-form" action="https://formspree.io/f/xjgykzbv" method="POST">
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; text-align: left;">Email
+                        Address</label>
+                    <input type="email" name="email" required
+                        style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: var(--radius-sm); font-family: inherit;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; text-align: left;">Name
+                        (Optional)</label>
+                    <input type="text" name="name"
+                        style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: var(--radius-sm); font-family: inherit;">
+                </div>
+
+                <!-- Hidden Subject Field for Formspree -->
+                <input type="hidden" name="_subject" value="New Home Subscription Request">
+
+                <!-- Honeypot Field (Hidden) -->
+                <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+                <p
+                    style="color: var(--color-text-muted); margin: 0.5rem 0 1.5rem 0; text-align: center; font-size: 0.9rem; font-style: italic;">
+                    (We will only email you about new homes on the market, nothing else)
+                </p>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Notify Me</button>
+                <p id="notify-status" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; display: none;">
+                </p>
+            </form>
+        </div>
+    </div>
 
     <script src="js/app.js?v=1"></script>
     <script src="js/homes.js?v=1"></script>
