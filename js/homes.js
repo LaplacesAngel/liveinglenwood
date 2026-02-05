@@ -9,15 +9,15 @@ const FALLBACK_HOMES = [
         "features": [
             "3 Bedrooms",
             "2 Bathrooms",
+            "1,493 Sq Ft",
             "Dimensions: 27' x 56'",
-            "1493 Sq Ft",
-            "Model: Warren",
-            "Manufacturer: Champion / Dutch Home",
-            "Rapid Wall Premium Insulated Skirting",
             "All Drywall Interior",
             "Stainless-Steel Appliances",
             "Modern Kitchen with Island",
-            "Wooded lot with views"
+            "Wooded lot with views",
+            "Manufacturer: Champion / Dutch Home",
+            "Model: Warren",
+            "Rapid Wall Premium Insulated Skirting"
         ],
         "photos": [
             "assets/homes/sharon-main.webp",
@@ -127,7 +127,7 @@ const detailId = getQueryParam('id');
 
 if (detailId) {
     // We are on listing.html, fetch data and render details
-    fetch('data/homes.json')
+    fetch('data/homes.json?v=' + new Date().getTime())
         .then(response => response.json())
         .catch(err => {
             console.warn('Fetch failed, using fallback data', err);
@@ -154,12 +154,59 @@ if (detailId) {
         });
 }
 
+
+
+function getFeatureIcon(text) {
+    const t = (text || '').toLowerCase();
+    const color = 'var(--color-primary)';
+
+    // Bed / Bedroom
+    if (t.includes('bed')) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>`;
+    }
+
+    // Bath / Bathroom
+    if (t.includes('bath')) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="12" x="4" y="6" rx="2"/><path d="M9 21V6"/><path d="M15 21V6"/><path d="M2 10h20"/></svg>`;
+    }
+
+    // Area / Dimensions
+    if (t.includes('sq ft') || t.includes('dimensions') || t.includes('size')) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 21V7h14"/><path d="M7 11h4"/><path d="M7 15h4"/><path d="M11 7v14"/><path d="M15 7v14"/></svg>`;
+    }
+
+    // Kitchen
+    if (t.includes('kitchen')) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 9c.6-.6 1.4-1 2.4-1 2 0 3.5 1.5 3.5 3.5v11"/><path d="M9.6 9c-.6-.6-1.4-1-2.4-1-2 0-3.5 1.5-3.5 3.5v11"/><path d="M7 2v5"/><path d="M17 2v5"/><line x1="2" y1="12" x2="22" y2="12"/></svg>`;
+    }
+
+    // Manufacturer / Tag
+    if (t.includes('model') || t.includes('manufact') || t.includes('brand')) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`;
+    }
+
+    // Skirting / Insulation
+    if (t.includes('skirting') || t.includes('insulat') || t.includes('wall')) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M13 14h-2"/><path d="M13 18h-2"/></svg>`;
+    }
+
+    // Default Check
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+}
+
 function renderListingDetails(home) {
     const container = document.getElementById('listing-content');
     if (!container) return;
 
-    // Format features
-    const featuresHtml = home.features.map(f => `<span class="feature-tag" style="background: rgba(27, 77, 62, 0.1); color: var(--color-primary); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-weight: 500;">${f}</span>`).join('');
+    // Format features with icons
+    const featuresHtml = home.features.map(f => `
+        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #eee;">
+            <div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: rgba(27, 77, 62, 0.05); border-radius: 50%;">
+                ${getFeatureIcon(f)}
+            </div>
+            <span style="font-size: 1.05rem; color: var(--color-text-body); font-weight: 500;">${f}</span>
+        </div>
+    `).join('');
 
     // Format gallery
     const galleryHtml = home.photos.map((photo, index) => `
@@ -196,7 +243,7 @@ function renderListingDetails(home) {
 
                 <div style="margin-bottom: 2rem;">
                     <h3 style="margin-bottom: 1rem;">Features & Specs</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <div style="display: flex; flex-direction: column;">
                         ${featuresHtml}
                     </div>
                 </div>
