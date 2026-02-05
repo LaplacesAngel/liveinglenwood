@@ -84,9 +84,7 @@
                 <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Featured Homes</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Explore our latest available
                     properties</p>
-                <button id="notify-btn" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1.5rem;">
-                    <span style="margin-right: 0.5rem;">🔔</span> Get notified when a new home is added
-                </button>
+
             </div>
 
             <div id="homes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
@@ -360,7 +358,10 @@
 
                 <!-- Honeypot Field (Hidden) -->
                 <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
-
+                <p
+                    style="color: var(--color-text-muted); margin: 0.5rem 0 1.5rem 0; text-align: center; font-size: 0.9rem; font-style: italic;">
+                    (We will only email you about new homes on the market, nothing else)
+                </p>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Notify Me</button>
                 <p id="notify-status" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; display: none;">
                 </p>

@@ -95,12 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const notifyForm = document.getElementById('notify-form');
     const notifyStatus = document.getElementById('notify-status');
 
-    if (modal && notifyBtn && closeBtn) {
-        // Open Modal
-        notifyBtn.addEventListener('click', () => {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
+    if (modal && closeBtn) {
+        // Open Modal (if legacy button exists or future buttons need a helper)
+        if (notifyBtn) {
+            notifyBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        }
 
         // Close Modal
         const closeModal = () => {
