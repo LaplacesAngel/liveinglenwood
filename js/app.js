@@ -185,4 +185,91 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Gallery Lightbox Logic
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+
+    let currentImageIndex = 0;
+
+    if (lightbox && galleryItems.length > 0) {
+        // Open Lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageIndex = index;
+                showLightboxImage(currentImageIndex);
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close Lightbox
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Show Image Function
+        const showLightboxImage = (index) => {
+            // Use the high-res image if available, otherwise the src
+            // For now, simple implementation uses src from the thumbnail
+            const imgSrc = galleryItems[index].src;
+            if (lightboxImg) {
+                lightboxImg.src = imgSrc;
+            }
+        };
+
+        // Prev/Next Navigation
+        const navigateLightbox = (step) => {
+            currentImageIndex += step;
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryItems.length - 1;
+            } else if (currentImageIndex >= galleryItems.length) {
+                currentImageIndex = 0;
+            }
+            showLightboxImage(currentImageIndex);
+        };
+
+        if (lightboxPrev) {
+            lightboxPrev.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent closing when clicking nav
+                navigateLightbox(-1);
+            });
+        }
+
+        if (lightboxNext) {
+            lightboxNext.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent closing when clicking nav
+                navigateLightbox(1);
+            });
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateLightbox(1);
+            }
+        });
+    }
+
 });
