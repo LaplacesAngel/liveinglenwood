@@ -51,11 +51,17 @@ def convert_to_webp(directory):
     print(f"Total space saved: {saved_space/1024/1024:.2f} MB")
 
 if __name__ == "__main__":
+    import sys
     print("Starting conversion...")
+    
+    directory = "assets"
+    if len(sys.argv) > 1:
+        directory = sys.argv[1]
+        
     # Install Pillow if needed: pip install Pillow
     try:
         import PIL
-        convert_to_webp("assets")
+        convert_to_webp(directory)
     except ImportError:
         print("Error: Pillow library not found.")
         print("Please run: pip install Pillow")
